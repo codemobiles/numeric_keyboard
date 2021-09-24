@@ -26,6 +26,10 @@ class NumericKeyboard extends StatefulWidget {
   /// Main axis alignment [default = MainAxisAlignment.spaceEvenly]
   final MainAxisAlignment mainAxisAlignment;
 
+  final double? numberFontSize;
+  final double? numberFontWidth;
+  final double? numberFontHeight;
+
   NumericKeyboard(
       {Key? key,
       required this.onKeyboardTap,
@@ -34,7 +38,10 @@ class NumericKeyboard extends StatefulWidget {
       this.rightIcon,
       this.leftButtonFn,
       this.leftIcon,
-      this.mainAxisAlignment = MainAxisAlignment.spaceEvenly})
+      this.numberFontSize = 26,
+      this.numberFontHeight = 50,
+      this.numberFontWidth = 50,
+      this.mainAxisAlignment = MainAxisAlignment.spaceAround})
       : super(key: key);
 
   @override
@@ -81,20 +88,12 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
               InkWell(
                   borderRadius: BorderRadius.circular(45),
                   onTap: widget.leftButtonFn,
-                  child: Container(
-                      alignment: Alignment.center,
-                      width: 50,
-                      height: 50,
-                      child: widget.leftIcon)),
+                  child: Container(alignment: Alignment.center, width: 50, height: 50, child: widget.leftIcon)),
               _calcButton('0'),
               InkWell(
                   borderRadius: BorderRadius.circular(45),
                   onTap: widget.rightButtonFn,
-                  child: Container(
-                      alignment: Alignment.center,
-                      width: 50,
-                      height: 50,
-                      child: widget.rightIcon))
+                  child: Container(alignment: Alignment.center, width: 50, height: 50, child: widget.rightIcon))
             ],
           ),
         ],
@@ -110,14 +109,11 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
         },
         child: Container(
           alignment: Alignment.center,
-          width: 50,
-          height: 50,
+          width: widget.numberFontWidth,
+          height: widget.numberFontHeight,
           child: Text(
             value,
-            style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-                color: widget.textColor),
+            style: TextStyle(fontSize: widget.numberFontSize, fontWeight: FontWeight.bold, color: widget.textColor),
           ),
         ));
   }
