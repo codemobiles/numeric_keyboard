@@ -42,10 +42,10 @@ class NumericKeyboard extends StatefulWidget {
     this.rightIcon,
     this.leftButtonFn,
     this.leftIcon,
-    this.borderRadius = 100,
+    this.borderRadius = 80,
     this.numberFontSize = 26,
-    this.numberFontHeight = 80,
-    this.numberFontWidth = 80,
+    this.numberFontHeight = 70,
+    this.numberFontWidth = 70,
     this.mainAxisAlignment = MainAxisAlignment.spaceAround})
       : super(key: key);
 
